@@ -1,0 +1,10 @@
+// [snowpack] add styles to the page (skip if no document exists)
+if (typeof document !== 'undefined') {
+  const code = "body {\n\tmargin: 0;\n\tfont-family: -apple-system, BlinkMacSystemFont, \"Segoe UI\", \"Roboto\", \"Oxygen\",\n\t\t\"Ubuntu\", \"Cantarell\", \"Fira Sans\", \"Droid Sans\", \"Helvetica Neue\",\n\t\tsans-serif;\n\t-webkit-font-smoothing: antialiased;\n\t-moz-osx-font-smoothing: grayscale;\n}\n\ncode {\n\tfont-family: source-code-pro, Menlo, Monaco, Consolas, \"Courier New\",\n\t\tmonospace;\n}\n\n.button {\n\tappearance: none;\n\tborder: 0;\n\tborder-radius: 0.4rem;\n\tbackground: #4676D7;\n\tcolor: #fff;\n\tpadding: 8px 16px;\n\tfont-size: 20px;\n}\n.modalButton{\n\t\tappearance: none;\n\t\tborder: 0;\n\t\tborder-radius: 5px;\n\t\tbackground: skyblue;\n\t\tcolor: #fff;\n\t\tmargin: 10px;\n\t\tpadding: 0.3rem 0.3rem;\n\t\tfont-size: 15px;\n\t\ttext-align: right;\n}\ndiv .motion {\n\twhite-space: pre-wrap;\n\ttext-align: left;\n\tmargin: 1rem;\n\tpadding: 1rem;\n\tborder-radius: 0.8rem;\n\tborder: solid orange;\n\tline-height: 1.35rem;\n\t/* font-size: 1.1rem; */\n\t/* text-decoration: underline; */\n\t/* text-decoration-color: gainsboro; */\n}\n\n.formid {\n\tdisplay: inline-flex;\n}\n.dmotion {\n\twhite-space: pre-wrap;\n\ttext-align: left;\n\tmargin: 1rem;\n\tpadding: 1rem;\n\tborder-radius: 0.8rem;\n\tborder: solid black;\n\tline-height: 1.35rem;\n\t/* float: right; */\n\t/* font-size: 1.1rem; */\n\t/* text-decoration: underline; */\n\t/* text-decoration-color: gainsboro; */\n}\n.copy {\n\tmargin: 1.1rem;\n\tpadding: 0.3rem;\n}\n\n.title {\n\tcolor: lightskyblue;\n\tline-height: 1.35rem;\n}\n\n.backward {\n\t/* line-height: 1.2rem; */\n\tmargin: 1.2rem;\n\tfloat: left;\n}\n\nimg {\n\twidth: 15rem;\n\tmargin: 1rem;\n}";
+
+  const styleEl = document.createElement("style");
+  const codeEl = document.createTextNode(code);
+  styleEl.type = 'text/css';
+  styleEl.appendChild(codeEl);
+  document.head.appendChild(styleEl);
+}
