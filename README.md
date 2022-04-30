@@ -5,5 +5,5 @@ URL
 https://utds-motion-sbert.onrender.com/
 
 npm i 
-
+and
 npm start
