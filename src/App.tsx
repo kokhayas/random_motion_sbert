@@ -10,7 +10,8 @@ import internationalVector from "./data/modifiedmotionInternational.json"
 import national from './data/national.json';
 import pic from "./utdslogo.png";
 
-
+import motionNational from "./data/motionNational.json"
+import motionInternational from "./data/motionInternational.json"
 
 interface AppProps {}
 
@@ -106,15 +107,16 @@ function App({}: AppProps) {
 	let A = [];
 
     keys.sort(DCompare);
-    for(let i=0; i<6; i++){
-        if (i > 0 && i < 5) {
+	let howmany = 11;
+    for(let i=0; i<howmany; i++){
+        if (i > 0 && i < howmany-1) {
 			D.push("\t(");
 			// D.push(String(similarities[keys[i]]).slice(0, 4));
 			D.push(String(i));
 
 			D.push(")\t");
         }
-		else if (i===5) {
+		else if (i===howmany-1) {
 			D.push("\t(");
 			// D.push(String(similarities[keys[i]]).slice(0, 4));
 			D.push(String(i));
@@ -122,46 +124,52 @@ function App({}: AppProps) {
 			D.push(")\t");
 		}
 		else {
-			D.push("\n       【");
+			D.push("\n       \t【");
 
 		}
         console.log("D");
-        console.log(Vector[keys[i]]["sentence"]);
-        D.push(Vector[keys[i]]["sentence"]);
+        // console.log(Vector[keys[i]]["sentence"]);
+        // D.push(Vector[keys[i]]["sentence"]);
+		if (flag) {
+			D.push(motionNational[keys[i]]);
+		} else {
+			D.push(motionInternational[keys[i]]);
+		}
+		D.push()
 		if (i === 0) {
 			D.push("】");
 		}
         D.push("\n")
     }
-	D.push("\t    :\n")
+	// D.push("\t    :\n")
 
 
 
-	keys.sort(ACompare);
-	for(let i=0; i<5; i++){
-        if (i < 4) {
-			D.push("\t(");
-			// D.push(String(similarities[keys[i]]).slice(0, 4));
-			D.push(String(N - 5 + i));
-			D.push(")\t");
-        }
-		else if (i===4) {
-			D.push("\t(");
-			// D.push(String(similarities[keys[i]]).slice(0, 4));
-			D.push(String(N - 5 + i));
-			D.push(")\t");
-		}
-		else {
-			D.push("\n\t");
-		}
-        console.log("A");
-        console.log(Vector[keys[i]]["sentence"]);
-        D.push(Vector[keys[i]]["sentence"]);
-        D.push("\n")
+	// keys.sort(ACompare);
+	// for(let i=0; i<5; i++){
+    //     if (i < 4) {
+	// 		D.push("\t(");
+	// 		// D.push(String(similarities[keys[i]]).slice(0, 4));
+	// 		D.push(String(N - 5 + i));
+	// 		D.push(")\t");
+    //     }
+	// 	else if (i===4) {
+	// 		D.push("\t(");
+	// 		// D.push(String(similarities[keys[i]]).slice(0, 4));
+	// 		D.push(String(N - 5 + i));
+	// 		D.push(")\t");
+	// 	}
+	// 	else {
+	// 		D.push("\n\t");
+	// 	}
+    //     console.log("A");
+    //     console.log(Vector[keys[i]]["sentence"]);
+    //     D.push(Vector[keys[i]]["sentence"]);
+    //     D.push("\n")
 		// if (i===4) {
 		// 	D.push("         -----------------------------")
 		// }
-    }
+    // }
 
     return [D, A]
 
